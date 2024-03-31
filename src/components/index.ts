@@ -1,0 +1,7 @@
+export * from './Header'
+export * from './Main'
+export * from './Proyects'
+export * from './ProyectCard'
+export * from './AboutMe'
+export * from './Contact'
+export * from './Footer'
