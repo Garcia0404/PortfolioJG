@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 interface HeaderProps {
   title: string
 }
@@ -12,7 +13,7 @@ export const Header: React.FC<HeaderProps> = ({ title }) => {
   const toggleStyle2 = active ? 'opacity-0' : ''
   const toggleStyle3 = active ? 'rotate-45' : ''
   return (
-    <header className='sticky top-0 right-0 backdrop-blur-md z-10'>
+    <motion.header initial={{opacity:0}} animate={{opacity:1}} transition={{delay:1}} className='sticky top-0 right-0 backdrop-blur-md z-10'>
       <div className='flex justify-between items-center p-6 mobileLg:px-12 max-w-screen-tablet mx-auto'>
         <style>
           {`
@@ -46,6 +47,6 @@ export const Header: React.FC<HeaderProps> = ({ title }) => {
           <li className='relative list-item'><a href="#contact">Contacto</a></li>
         </ul>
       </div>
-    </header>
+    </motion.header>
   );
 }

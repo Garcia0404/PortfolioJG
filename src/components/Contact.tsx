@@ -45,7 +45,7 @@ export const Contact = () => {
                   </button>
                 </div>
               </div>
-              <input type="hidden" name="_next" value='http://localhost:5173/' />
+              <input type="hidden" name="_next" value='https://portfolio-jg-steel.vercel.app/' />
               <input type="hidden" name="_captcha" value='false' />
             </form>
           </div>
