@@ -1,4 +1,34 @@
+import { useForm, SubmitHandler } from "react-hook-form"
+type Inputs = {
+  name: string
+  email:string
+  comments:string
+}
+
 export const Contact = () => {
+  const { register, handleSubmit, formState: { errors } } = useForm<Inputs>()
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/julioxenrique@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+
+      if (!response.ok) {
+        throw new Error("Error al enviar el formulario");
+      }
+
+      alert("Se envió el mensaje");
+      console.log(data)
+    } catch (error) {
+      console.error("Error al enviar el formulario:", error);
+    }
+  };
+
   return (
     <section className="bg-white" id="contact">
       <div className="max-w-screen-tablet mx-auto p-6 mobileLg:p-12 text-3xl flex gap-4 flex-col">
@@ -6,7 +36,7 @@ export const Contact = () => {
           <h2 className="font-light my-8">Contacto</h2>
           <div className="bg-white mb-4 mt-8 text-sm">
             {/*Formulario----------------------------------------------*/}
-            <form className="w-full" action="https://formsubmit.co/julioxenrique@gmail.com" method="POST">
+            <form onSubmit={handleSubmit(onSubmit)} className="w-full" action="https://formsubmit.co/julioxenrique@gmail.com" method="POST">
               <div className="md:flex md:items-center mb-6">
                 <div className="md:w-1/3">
                   <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="name">
@@ -14,7 +44,19 @@ export const Contact = () => {
                   </label>
                 </div>
                 <div className="md:w-2/3">
-                  <input required className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" name="name" type="text" placeholder="Julio García" />
+                  <input {...register('name', {
+                    required: true, 
+                    pattern: /^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s]+$/,
+                    minLength: 3,
+                    maxLength:50,
+                  })} className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" 
+                  name="name" 
+                  type="text" 
+                  placeholder="Julio García" />
+                  {errors.name?.type==='required' && <span className="text-red-600">¡Ups! Olvidó llenar este campo</span>}
+                  {errors.name?.type==='pattern' && <span className="text-red-600">Ingrese su nombre</span>}
+                  {errors.name?.type==='minLength' && <span className="text-red-600">Debe ingresar como mínimo dos caracteres</span>}
+                  {errors.name?.type==='maxLength' && <span className="text-red-600">Máximo 40 caracteres</span>}
                 </div>
               </div>
               <div className="md:flex md:items-center mb-6">
@@ -24,7 +66,16 @@ export const Contact = () => {
                   </label>
                 </div>
                 <div className="md:w-2/3">
-                  <input required className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" name="email" type="email" placeholder="example@gmail.com" />
+                  <input {...register('email',{
+                    required:true,
+                    pattern:/^[\w.%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/,
+                    maxLength:50,
+                  })}className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" 
+                  name="email" 
+                  type="email" 
+                  placeholder="example@gmail.com" />
+                  {errors.email?.type==='required' && <span className="text-red-600">¡Ups! Olvidó llenar este campo</span>}
+                  {errors.email?.type==='pattern' && <span className="text-red-600">Escriba un correo válido</span>}
                 </div>
               </div>
               <div className="md:flex md:items-center mb-6">
@@ -34,7 +85,17 @@ export const Contact = () => {
                   </label>
                 </div>
                 <div className="md:w-2/3">
-                  <textarea required className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500 h-32 resize-none" name="comments" placeholder="Escribe un mensaje" />
+                  <textarea {...register('comments',{
+                    required:true,
+                    minLength:4,
+                    maxLength:1500
+                  })} className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500 h-32 resize-none" 
+                  name="comments" 
+                  placeholder="Escribe un mensaje" />
+                  {errors.comments?.type==='required' && <span className="text-red-600">¡Ups! Olvidó escribir un mensaje</span>}
+                  {errors.comments?.type==='minLength' && <span className="text-red-600">Su mensaje debe contener al menos 4 caracteres</span>}
+                  {errors.comments?.type==='maxLength' && <span className="text-red-600">El mensaje puede tener como máximo 1500 caracteres</span>}
+
                 </div>
               </div>
               <div className="md:flex md:items-center">
@@ -45,8 +106,6 @@ export const Contact = () => {
                   </button>
                 </div>
               </div>
-              <input type="hidden" name="_next" value='https://portfolio-jg-steel.vercel.app/' />
-              <input type="hidden" name="_captcha" value='false' />
             </form>
           </div>
         </main>

@@ -13,8 +13,12 @@ export const Header: React.FC<HeaderProps> = ({ title }) => {
   const toggleStyle2 = active ? 'opacity-0' : ''
   const toggleStyle3 = active ? 'rotate-45' : ''
   return (
-    <motion.header initial={{opacity:0}} animate={{opacity:1}} transition={{delay:1}} className='sticky top-0 right-0 backdrop-blur-md z-10'>
-      <div className='flex justify-between items-center p-6 mobileLg:px-12 max-w-screen-tablet mx-auto'>
+    <motion.header
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 1 }}
+      className='sticky top-0 right-0 backdrop-blur-md z-10'>
+      <nav className='flex justify-between items-center p-6 mobileLg:px-12 max-w-screen-tablet mx-auto'>
         <style>
           {`
           .list-item::before {
@@ -30,9 +34,29 @@ export const Header: React.FC<HeaderProps> = ({ title }) => {
           .list-item:hover::before{
             width: 100%;
           }
-        `}
+          header{
+            animation: headerScroll both;
+            animation-timeline: scroll(root);
+            animation-range:0 300px;
+          }
+          nav{
+            animation: navbarScroll both;
+            animation-timeline: scroll(root);
+            animation-range:0 300px;
+          }
+          @keyframes navbarScroll{
+            to{
+              padding:12px;
+            }
+          }
+          @keyframes headerScroll{
+            to{
+              background-color: rgba(255,255,255,0.5);
+            }
+          }
+          `}
         </style>
-        <h1 className='text-3xl border border-blueMain p-1 text-grayMain'>{title}</h1>
+        <h1 className='logo text-3xl border border-blueMain p-1 text-grayMain'>{title}</h1>
         <div className="toggle mobileLg:hidden" onClick={handleClick}>
           <button className="show-menu flex flex-col w-[30px] gap-[9px]">
             <div className={`bg-grayMain h-[2px] w-full origin-right transition-all duration-300 rounded-md ${toggleStyle1}`}></div>
@@ -46,7 +70,7 @@ export const Header: React.FC<HeaderProps> = ({ title }) => {
           <li className='relative list-item'><a href="#aboutMe">Sobre mí</a></li>
           <li className='relative list-item'><a href="#contact">Contacto</a></li>
         </ul>
-      </div>
+      </nav>
     </motion.header>
   );
 }

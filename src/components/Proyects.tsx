@@ -3,13 +3,13 @@ import { ProyectCard } from "."
 import { proyects } from "../helper/proyects"
 export const Proyects = () => {
   return (
-    <section className="bg-white" id="proyects">
+    <section className="bg-white overflow-hidden" id="proyects">
       <motion.div
         className="max-w-screen-tablet mx-auto p-6 mobileLg:p-12"
         initial={{ opacity: 0, y: 100 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.7 }}
 
       >
         <h2 className="text-3xl font-light my-8">Proyects</h2>
