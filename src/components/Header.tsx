@@ -46,7 +46,7 @@ export const Header: React.FC<HeaderProps> = ({ title }) => {
           }
           @keyframes navbarScroll{
             to{
-              padding:12px;
+              padding-block:12px;
             }
           }
           @keyframes headerScroll{
