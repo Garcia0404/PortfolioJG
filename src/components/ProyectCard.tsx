@@ -7,13 +7,13 @@ interface Props {
 }
 export const ProyectCard: React.FC<Props> = ({ name, description, img, tools, link }) => {
   return (
-    <article onClick={() => { window.open(link, '_blank') }} className="grid tabletsm:grid-cols-2 gap-5 border p-4 hover:border-gray-400 transition-all hover:-translate-y-2 group/item cursor-pointer">
-      <div className="proyect-img relative">
-        <img className="w-full" width='400px' height='400px' src={img} alt={name} />
+    <article onClick={() => { window.open(link, '_blank') }} className="relative grid tabletsm:grid-cols-2 border rounded-lg overflow-hidden hover:border-gray-400 transition-all group/item cursor-pointer">
+      <div className="proyect-img relative overflow-hidden">
+        <img className="w-full hover:scale-105 transition-all" width='400px' height='400px' src={img} alt={name} />
       </div>
-      <div className="flex flex-col min-h-48">
+      <div className="flex flex-col min-h-48 p-6">
         <h3 className="text-2xl font-bold text-blue-600">{name}</h3>
-        <p className="text-wrap flex-1 text-grayMain mt-4 font-light">{description}</p>
+        <p className="text-wrap flex-1 text-grayMain mt-3 font-light">{description}</p>
         <div className="flex items-center">
           <span className="flex gap-2">{
             tools.map((tool,index)=>(
