@@ -58,7 +58,7 @@ export const Header: React.FC<HeaderProps> = ({ title }) => {
         </style>
         <h1 className='logo text-3xl border border-blueMain p-1 text-grayMain'>{title}</h1>
         <div className="toggle mobileLg:hidden" onClick={handleClick}>
-          <button className="show-menu flex flex-col w-[30px] gap-[9px]">
+          <button aria-label="Abrir Menu" className="show-menu flex flex-col w-[30px] gap-[9px]">
             <div className={`bg-grayMain h-[2px] w-full origin-right transition-all duration-300 rounded-md ${toggleStyle1}`}></div>
             <div className={`bg-grayMain h-[2px] w-full origin-right transition-all duration-300 rounded-md ${toggleStyle2}`}></div>
             <div className={`bg-grayMain h-[2px] w-full origin-right transition-all duration-300 rounded-md ${toggleStyle3}`}></div>
