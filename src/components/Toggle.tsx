@@ -4,6 +4,12 @@ export const Toggle = () => {
     const { toggleOpen,setToggleOpen } = useContext(Context) as {toggleOpen:boolean;setToggleOpen:(toggleOpen:boolean)=>void}
     const handleClick = () => {
         setToggleOpen(!toggleOpen)
+        document.body.style.overflowY='hidden'
+    }
+    if(toggleOpen){
+        document.body.style.overflowY='hidden'
+    }else{
+        document.body.style.overflowY='auto'
     }
     const toggleStyle1 = toggleOpen ? '-rotate-45 bg-white' : 'bg-grayMain'
     const toggleStyle2 = toggleOpen ? 'opacity-0 bg-white' : 'bg-grayMain'
