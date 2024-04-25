@@ -14,7 +14,7 @@ export default {
         'mobile': '350px',
         'mobileLg': '550px',
         'tabletsm': '650px',
-        'tablet': '800px',
+        'tablet': '900px',
       },
     },
   },

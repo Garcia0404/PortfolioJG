@@ -22,7 +22,7 @@ export const Contact = () => {
       )
     } else {
       return (
-        <button className="shadow bg-purple-500 hover:scale-110 transition-all focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="submit">
+        <button className="shadow bg-purple-600 hover:scale-110 active:scale-95 transition-all focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="submit">
           Enviar
         </button>
       )

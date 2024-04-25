@@ -1,24 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 interface HeaderProps {
   title: string
 }
 
 export const Header: React.FC<HeaderProps> = ({ title }) => {
-  const [active, setActive] = useState(false)
-  const handleClick = () => {
-    setActive(!active)
-  }
-  const toggleStyle1 = active ? '-rotate-45' : ''
-  const toggleStyle2 = active ? 'opacity-0' : ''
-  const toggleStyle3 = active ? 'rotate-45' : ''
   return (
     <motion.header
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 1 }}
       className='sticky top-0 right-0 backdrop-blur-md z-10'>
-      <nav className='flex justify-between items-center p-6 mobileLg:px-12 max-w-screen-tablet mx-auto'>
+      <nav className='navbar flex justify-between items-center p-6 mobileLg:px-12 max-w-screen-tablet mx-auto'>
         <style>
           {`
           .list-item::before {
@@ -39,7 +32,7 @@ export const Header: React.FC<HeaderProps> = ({ title }) => {
             animation-timeline: scroll(root);
             animation-range:0 300px;
           }
-          nav{
+          .navbar{
             animation: navbarScroll both;
             animation-timeline: scroll(root);
             animation-range:0 300px;
@@ -57,13 +50,6 @@ export const Header: React.FC<HeaderProps> = ({ title }) => {
           `}
         </style>
         <h1 className='logo text-3xl border border-blueMain p-1 text-grayMain'>{title}</h1>
-        <div className="toggle mobileLg:hidden" onClick={handleClick}>
-          <button aria-label="Abrir Menu" className="show-menu flex flex-col w-[30px] gap-[9px]">
-            <div className={`bg-grayMain h-[2px] w-full origin-right transition-all duration-300 rounded-md ${toggleStyle1}`}></div>
-            <div className={`bg-grayMain h-[2px] w-full origin-right transition-all duration-300 rounded-md ${toggleStyle2}`}></div>
-            <div className={`bg-grayMain h-[2px] w-full origin-right transition-all duration-300 rounded-md ${toggleStyle3}`}></div>
-          </button>
-        </div>
         <ul className="list-none hidden gap-4 mobileLg:flex">
           <li className='relative border-b-[2px] border-b-blueMain'><a href="#">Home</a></li>
           <li className='relative list-item'><a href="#proyects">Proyectos</a></li>
