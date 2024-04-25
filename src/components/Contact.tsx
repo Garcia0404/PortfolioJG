@@ -57,7 +57,7 @@ export const Contact = () => {
   }
 
   return (
-    <section className="bg-white" id="contact">
+    <section className="bg-white pt-4" id="contact">
       <div className="max-w-screen-tablet mx-auto p-6 mobileLg:p-12 text-3xl flex gap-4 flex-col">
         <main>
           <h2 className="font-light my-8">Contacto</h2>

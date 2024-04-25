@@ -3,7 +3,7 @@ import { ProyectCard } from "."
 import { proyects } from "../helper/proyects"
 export const Proyects = () => {
   return (
-    <section className="bg-white overflow-hidden" id="proyects">
+    <section className="bg-white overflow-hidden pt-4" id="proyects">
       <motion.div
         className="max-w-screen-tablet mx-auto p-6 mobileLg:p-12"
         initial={{ opacity: 0, y: 100 }}
@@ -12,7 +12,7 @@ export const Proyects = () => {
         transition={{ duration: 0.7 }}
 
       >
-        <h2 className="text-3xl font-light my-8">Proyects</h2>
+        <h2 className="text-3xl font-light my-8">Proyectos</h2>
         <main className="flex flex-col gap-6">
           {
             proyects.map((proyect, index) => (

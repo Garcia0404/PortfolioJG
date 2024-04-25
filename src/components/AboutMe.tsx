@@ -1,7 +1,7 @@
 import { motion } from "framer-motion"
 export const AboutMe = () => {
   return (
-    <section id="aboutMe">
+    <section id="aboutMe" className="pt-4">
       <motion.div 
         className="max-w-screen-tablet mx-auto p-6 mobileLg:p-12"
         initial={{opacity:0,y:100}}
