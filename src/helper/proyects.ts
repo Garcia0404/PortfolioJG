@@ -18,7 +18,7 @@ export const proyects:Proyect[] = [
     img:'/eshop_so.png',
     description:'Tienda virtual que ofrece una experiencia de compras en línea, destacado por su carrito de compras funcional.',
     tools:['/js.svg','/react.svg','/tailwind.svg'],
-    link:'https://eshop-2xcv97o4k-julios-projects-6144f1d2.vercel.app/',
+    link:'https://eshop-gmd55n6qp-julios-projects-6144f1d2.vercel.app/',
   },
   {
     name:'Rick and Morty API',
@@ -32,7 +32,7 @@ export const proyects:Proyect[] = [
     img:'/todo_so.png',
     description:'Imagina un mundo donde cada tarea tiene su lugar, donde puedes priorizar tus responsabilidades con solo un par de toques en la pantalla. Con nuestra aplicación, ese mundo es una realidad.',
     tools:['/ts.svg','/react.svg','/tailwind.svg'],
-    link:'https://todo-nine-alpha-80.vercel.app/',
+    link:'https://todo-1ow2amvhx-julios-projects-6144f1d2.vercel.app/',
   },
 
 ]
