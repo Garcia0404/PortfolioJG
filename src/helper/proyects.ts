@@ -18,7 +18,7 @@ export const proyects:Proyect[] = [
     img:'/eshop_so.png',
     description:'Tienda virtual que ofrece una experiencia de compras en línea, destacado por su carrito de compras funcional.',
     tools:['/js.svg','/react.svg','/tailwind.svg'],
-    link:'https://eshop-gmd55n6qp-julios-projects-6144f1d2.vercel.app/',
+    link:'https://eshop-isild4k1j-julios-projects-6144f1d2.vercel.app/',
   },
   {
     name:'Rick and Morty API',
