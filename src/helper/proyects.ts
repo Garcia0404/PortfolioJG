@@ -11,7 +11,7 @@ export const proyects:Proyect[] = [
     img:'/musicPlayer_so.png',
     description:'¡Descubre el ritmo único de la banda estadounidense "The Strokes" con nuestro reproductor de música inspirado en Spotify!',
     tools:['/js.svg','/react.svg','/tailwind.svg'],
-    link:'https://eshop-red.vercel.app/',
+    link:'https://music-player-kappa-orcin.vercel.app/',
   },
   {
     name:'Eshop',
