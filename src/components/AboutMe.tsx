@@ -2,7 +2,7 @@ import { motion } from "framer-motion"
 import { Slider } from "./Slider"
 export const AboutMe = () => {
   const icons = [
-    'html', 'css', 'tailwind', 'js', 'ts', 'react', 'node', 'git'
+    'html', 'css', 'tailwind', 'js', 'ts', 'react', 'node', 'git','express','mysql'
   ]
   return (
     <section id="aboutMe" className="pt-4">
